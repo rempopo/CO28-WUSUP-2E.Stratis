@@ -1,0 +1,15 @@
+"####### tSF File Sweeper Engaged #######" 
+Mission directory:     C:\Users\Zodius\Documents\Arma 3 - Other Profiles\10Dozen\mpmissions\CO28-WUSUP-2E.Stratis\ 
+Mission fodler name:   CO28-WUSUP-2E 
+Removing tSF Helpers 
+Removing DynAI Helpers 
+Removing unused tSF Modules 
+    Folder is not used: Removing IntroText 
+    Folder is not used: Removing CCP 
+    Folder is not used: Removing AirborneSupport 
+    Folder is not used: Removing Interactives 
+    Folder is not used: Removing InteractivesACE 
+    Folder is not used: Removing EditorVehicleCrew 
+    Folder is not used: Removing EditorUnitBehavior 
+    Folder is not used: Removing EditorRadioSettings 
+Done! 
