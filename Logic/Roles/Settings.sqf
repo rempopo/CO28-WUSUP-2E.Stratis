@@ -65,6 +65,7 @@ dzn_roles_faction = 	[
 					"usocp" 	/*"US OCP"*/					
 					,"ruvv" 	/*"RU VV"*/
 					,"ukaf"	/*"UK AF"*/
+					,"ussf"	/*"US SF"*/
 				] select ("par_playerFaction" call BIS_fnc_getParamValue);
 
 dzn_roles_swFreq = "228";

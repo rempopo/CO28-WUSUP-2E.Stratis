@@ -129,7 +129,8 @@ dzn_fnc_roles_assignPlayersRole = {
 	/*
 		Join Group
 	*/
-	_this joinAsSilent [dzn_roles_groups select _squad, _groupPosition];
+	// _this joinAsSilent [dzn_roles_groups select _squad, _groupPosition];
+	[_this] joinSilent (dzn_roles_groups select _squad);
 	if (toLower(_role) == "sl") then {
 		if (!isNil "ace_interaction_fnc_doBecomeLeader") then {
 			[_this] call ace_interaction_fnc_doBecomeLeader;
@@ -203,6 +204,7 @@ dzn_fnc_roles_getNewbie = {
 	
 	_newbies
 };
+
 
 dzn_fnc_roles_createGroups = {
 	for "_i" from 1 to dzn_roles_numberOfGroups do {	
@@ -302,7 +304,8 @@ dzn_fnc_roles_showORBAT = {
 	private _line_leaders_template = "<t font='PuristaLight'><t color='#EDB81A' size='1.15' align='left'>%1</t><t color='%3' size='1.15' align='right'>%2</t></t>";
 	private _line_redTeam = "<t font='PuristaLight'><t color='#E33636' size='1' align='left'>%1</t><t color='%3' size='1' align='right'>%2</t></t>";	
 	private _line_blueTeam = "<t font='PuristaLight'><t color='#368DE3' size='1' align='left'>%1</t><t color='%3' size='1' align='right'>%2</t></t>";	
-
+	#define GET_NAME(PAR1)	if (!isNull PAR1 || alive PAR1) then { name PAR1 } else { "N/A" } 
+	
 	private _compileAndShow = {
 		private _orbatLine = "";
 		{
@@ -324,7 +327,7 @@ dzn_fnc_roles_showORBAT = {
 			, format [
 				_line_leaders_template
 				, "1'" + str(GET_SQUAD(_x)) + " SL"
-				, name _x
+				, GET_NAME(_x)
 				, if (_x == player) then { _line_colorPlayer } else { _line_colorDefault }
 			]
 		];
@@ -339,7 +342,7 @@ dzn_fnc_roles_showORBAT = {
 			format [
 				_line_leaders_template
 				, "1'6 PL"
-				, name dzn_roles_pl
+				, GET_NAME(dzn_roles_pl)
 				, if (dzn_roles_pl == player) then { _line_colorPlayer } else { _line_colorDefault }
 			]
 		);
@@ -362,7 +365,7 @@ dzn_fnc_roles_showORBAT = {
 			, format [
 				if (GET_TEAM(_x) == "RED") then {_line_redTeam} else {_line_blueTeam}
 				, [dzn_roles_displayNames, (GET_ROLE(_x))] call dzn_fnc_getValueByKey
-				, name _x
+				, GET_NAME(_x)
 				, if (_x == player) then { _line_colorPlayer } else { _line_colorDefault }
 			]		
 		];	

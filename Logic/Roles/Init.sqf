@@ -3,10 +3,23 @@ call compile preprocessFileLineNumbers "Logic\Roles\Functions.sqf";
 
 if (hasInterface) then {
 	[] spawn {
-		waitUntil {!isNull player && time > 0};		
+		waitUntil {!isNull player && time > 0};
+		if (toLower(roleDescription player) == "spectator") exitWith {};
+		
+		with uiNamespace do { 
+			dzn_SplashScreen = findDisplay 46 ctrlCreate ["RscText", -1];
+			dzn_SplashScreen ctrlSetPosition [-3,-3, 10, 10] ;
+			dzn_SplashScreen ctrlSetText "  ";
+			dzn_SplashScreen ctrlSetBackgroundColor [0,0,0,1];
+			dzn_SplashScreen ctrlCommit 0;
+		};	
+		
 		cutText ["","BLACK OUT"]; 
 		
-		waitUntil {player getVariable ["dzn_roles_assigned", false]};		
+		waitUntil {player getVariable ["dzn_roles_assigned", false]};
+		sleep 1;
+		with uiNamespace do { ctrlDelete dzn_SplashScreen; };
+		
 		player call dzn_fnc_roles_assignPlayersRole;
 		
 		call dzn_fnc_roles_showMyRole;

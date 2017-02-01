@@ -9,6 +9,8 @@ dzn_hostiles_faction = 	[
 	"usocp" 	/*"US Army"*/
 	,"ruvv" 	/*"RU VV"*/
 	,"rebels" 	/*"Rebels"*/
+	,"ukaf"	/* UK BAF */
+	,"ussf"	/* US SF */
 ] select ("par_hostileFaction" call BIS_fnc_getParamValue);
 
 dzn_hostiles_armor = "par_hostileArmor" call BIS_fnc_getParamValue;
@@ -33,6 +35,18 @@ dzn_hostiles_armorClassPerFaction = [
 		, ["CUP_I_BRDM2_NAPA","CUP_O_Ural_ZU23_CHDKZ","CUP_O_BRDM2_CHDKZ","CUP_O_BTR60_TK","CUP_O_BRDM2_TKA"]
 		, ["CUP_I_BMP2_NAPA","CUP_I_BMP1_TK_GUE","CUP_O_ZSU23_ChDKZ","CUP_O_BMP2_TKA","CUP_O_BMP2_ZU_TKA","CUP_O_BMP1_TKA"]
 		, ["CUP_I_T72_NAPA","CUP_I_T55_TK_GUE","CUP_O_T55_TK"]
+	]]
+	,["ukaf", [
+		["CUP_B_BAF_Coyote_GMG_W","CUP_B_BAF_Coyote_L2A1_W","CUP_B_Jackal2_GMG_GB_W","CUP_B_Jackal2_L2A1_GB_W","CUP_B_LR_MG_GB_W","CUP_B_LR_Special_GMG_GB_W"]
+		, ["CUP_B_Ridgback_LMG_GB_W","CUP_B_Ridgback_GMG_GB_W","CUP_B_FV432_Bulldog_GB_W","CUP_B_FV432_Bulldog_GB_W_RWS"]
+		, ["CUP_B_FV432_Bulldog_GB_W_RWS","CUP_B_FV510_GB_W","CUP_B_MCV80_GB_W"]
+		, ["CUP_B_Challenger2_2CW_BAF","CUP_B_Challenger2_Woodland_BAF"]
+	]]
+	,["ussf", [
+		["rhsusf_m1025_w_m2","rhsusf_m1025_w_mk19"]
+		, ["rhsusf_m113_usarmy","rhsusf_m113_usarmy_M240","rhsusf_m113_usarmy_MK19","CUP_B_M1130_CV_M2_Woodland"]
+		, ["RHS_M2A3_wd","RHS_M2A2_wd"]
+		, ["rhsusf_m1a1aimwd_usarmy"]
 	]]
 ];
 
